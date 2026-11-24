@@ -1,2 +1,5 @@
 # WaveFest
 Projet étudiant billeterie en ligne pour comprendre le DDD
+
+## Mur
+[Lien vers le mur Miro](https://miro.com/welcomeonboard/NDEvUERuSU83RlpHcThpZG1YdXhERE40QU03cUQwM3lyalVIMkVLNEtRSlNFY2NjbXk1Y3IvUm5Ra09qckpnYlM1bTdZUnlDbVBsT0M4T1ZwTWdPaFZISElZOHJZR0FneUpDeFYzYTN5Qi9VcWVsWk9GaWFyRTlYYVdBakVjNHByVmtkMG5hNDA3dVlncnBvRVB2ZXBnPT0hdjE=?share_link_id=267144384018)
