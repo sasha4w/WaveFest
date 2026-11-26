@@ -1,5 +1,5 @@
-## Glossaire  
-- **Billetrie** : Plateforme numérique qui permet d'acheter des pass. 
+## Glossaire
+- **Billetrie** : Plateforme numérique qui permet d'acheter des pass.
 - **Pass** : justificatif permettant d'avoir un billet
 - **Billet** :titre d'accès presenté a l'entrée
 - **Notification** : message envoyé au festivalier pour l'informer d'un évènement
