@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style type="text/css">
+            @page {
+                size: auto
+            }
+
+            #download-link {
+                position: fixed;
+                top: 0.5rem;
+                right: 0.5rem;
+            }
+        </style>
+        <title>Bounded Context Canvas - Programmation</title>
+    </head>
+    <body>
+        <header>
+            <h1>Bounded Context Canvas (v5)</h1>
+        </header>
+        <main class="container-fluid">
+            <form>
+                <div class="row">
+                    <div class="col border-right">
+                        <div class="form-group">
+                            <label for="name" class="font-weight-bolder">Name</label>
+                            <input type="text" class="form-control" id="name" value="Programmation" aria-describedby="nameHelp">
+                        </div>
+                        <hr/>
+                        <div class="form-group">
+                            <label for="purpose" class="font-weight-bolder">Purpose</label>
+                            <textarea class="form-control" id="purpose" rows="2" aria-describedby="purpose-help">Permettre à l'organisation de préparer chaque festival : ses jours, ses têtes d'affiche et ses vagues de vente. Elle annonce aux autres contextes ce qui est programmé et ce qui est annulé.</textarea>
+                            <small id="purpose-help" class="form-text text-muted">What benefits does this context provide
+                                and how does it provide them?
+                                Describe the purpose from a business
+                                perspective.</small>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col">
+                                <p class="font-weight-bolder text-center">BC Classification</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domain" id="domain-radios-1" value="core">
+                                    <label class="form-check-label" for="domain-radios-1">Core</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domain" id="domain-radios-2" value="supporting" checked="">
+                                    <label class="form-check-label" for="domain-radios-2">Supporting</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domain" id="domain-radios-3" value="generic">
+                                    <label class="form-check-label" for="domain-radios-3">Generic</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="font-weight-bolder text-center">Business Model</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-1" value="revenue">
+                                    <label class="form-check-label" for="business-model-radios-1">Revenue</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-2" value="engagement" checked="">
+                                    <label class="form-check-label" for="business-model-radios-2">Engagement</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-3" value="compliance">
+                                    <label class="form-check-label" for="business-model-radios-3">Compliance</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-4" value="cost-reduction">
+                                    <label class="form-check-label" for="business-model-radios-4">Cost reduction</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="font-weight-bolder text-center">Evolution</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-1" value="genesis">
+                                    <label class="form-check-label" for="evolution-radios-1">Genesis</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-2" value="custom-built" checked="">
+                                    <label class="form-check-label" for="evolution-radios-2">Custom built</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-3" value="product">
+                                    <label class="form-check-label" for="evolution-radios-3">Product</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-4" value="commodity">
+                                    <label class="form-check-label" for="evolution-radios-4">Commodity</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="domain-roles" class="font-weight-bolder">Domain roles</label>
+                            <input type="text" class="form-control" id="domain-roles" value="Specification context : décrit le festival que les autres contextes exécutent" aria-describedby="domain-roles-help">
+                            <small id="domain-roles-help" class="form-text text-muted">draft, execution, analysis, gateway context, etc.</small>
+                        </div>
+                    
+                    </div>
+                </div>                
+                <hr/> 
+                <div class="row">
+                    <div class="col">
+                        <div class="col border-right">
+                            <p class="text-center font-weight-bolder">Inbound Communication</p>
+                            <div class="form-group">                                
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Organisation">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2" value="Organisation">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3" value="Organisation">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Acteur">
+                                            <input type="text" class="form-control" id="supplier-relationship-2" value="Acteur">
+                                            <input type="text" class="form-control" id="supplier-relationship-3" value="Acteur">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Command</label>
+                                            <input type="text" class="form-control" id="supplier-command-1" value="Programmer un festival">
+                                            <input type="text" class="form-control" id="supplier-command-2" value="Définir les vagues">
+                                            <input type="text" class="form-control" id="supplier-command-3" value="Annuler un concert">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>    
+                            
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Event</label>
+                                            <input type="text" class="form-control" id="supplier-event-1">
+                                            <input type="text" class="form-control" id="supplier-event-2">
+                                            <input type="text" class="form-control" id="supplier-event-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Festivalier">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Acteur">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Query</label>
+                                            <input type="text" class="form-control" id="supplier-query-1" value="Programme du festival">
+                                            <input type="text" class="form-control" id="supplier-query-2">
+                                            <input type="text" class="form-control" id="supplier-query-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>
+                    </div>
+
+                    <div class="col border-right">  
+                        <div class="form-group">
+                            <label for="ubuquitous-language" class="font-weight-bolder">Ubiquitous Language</label>
+                            <textarea class="form-control" id="ubuquitous-language" rows="5" aria-describedby="ubiquitous-language-help">Festival : Évènement de un ou plusieurs jours dont les pass sont vendus par l'application.
+Organisation : Groupe responsable de la gestion et de l'organisation du festival.
+Programmation : Préparation et mise en place d'un évènement.
+Jour : Journée du festival, avec sa tête d'affiche.
+Tête d'affiche : Artiste principal annoncé pour un jour donné.
+Concert : Passage d'un artiste un jour donné.
+Annulation : Décision de l'organisation de retirer un concert du programme.
+Vague : Période de vente définie par un prix, un quota et une date limite.
+Quota : Nombre de pass mis en vente dans une vague.
+Date limite : Date à laquelle une vague se clôt si son quota n'est pas épuisé.</textarea>
+                            <small id="ubiquitous-language-help" class="form-text text-muted">Key domain terminology</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="business-decisions" class="font-weight-bolder">Business Decisions</label>
+                            <textarea class="form-control" id="business-decisions" rows="5" aria-describedby="business-decisions-help">- L'application gère plusieurs festivals en même temps.
+- Un festival a une tête d'affiche par jour.
+- Chaque festival a trois vagues : Early, Regular, Last minute, dans cet ordre.
+- Une vague est définie par un prix, un quota et une date limite.
+- Les dates limites des vagues se suivent sans se chevaucher.
+- Seule l'organisation peut programmer ou annuler un concert.
+- Toute annulation de tête d'affiche est publiée pour déclencher les remboursements.</textarea>
+                            <small id="business-decisions-help" class="form-text text-muted">Key business rules, policies and decisions</small>
+                        </div>
+                        <hr/>                        
+                    </div>
+
+                    <div class="col">
+                        <div class="col border-right">
+                            <p class="text-center font-weight-bolder">Outbound Communication</p>
+                            <div class="form-group">                                
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Command</label>
+                                            <input type="text" class="form-control" id="supplier-command-1">
+                                            <input type="text" class="form-control" id="supplier-command-2">
+                                            <input type="text" class="form-control" id="supplier-command-3">
+                                            
+                                        </div>
+                                    </div>                                    
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>    
+                            
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Event</label>
+                                            <input type="text" class="form-control" id="supplier-event-1" value="Vagues définies">
+                                            <input type="text" class="form-control" id="supplier-event-2" value="Concert annulé">
+                                            <input type="text" class="form-control" id="supplier-event-3" value="Festival programmé (dates)">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Customer/Supplier (D)">
+                                            <input type="text" class="form-control" id="supplier-relationship-2" value="Customer/Supplier (D)">
+                                            <input type="text" class="form-control" id="supplier-relationship-3" value="Customer/Supplier (D)">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Billetterie">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2" value="Remboursement billet">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3" value="Gestion de billet">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Query</label>
+                                            <input type="text" class="form-control" id="supplier-query-1">
+                                            <input type="text" class="form-control" id="supplier-query-2">
+                                            <input type="text" class="form-control" id="supplier-query-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>                                    
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <hr/> 
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="assumptions" class="font-weight-bolder">Assumptions</label>
+                            <textarea class="form-control" id="assumptions" rows="2" aria-describedby="assumptions-help">- Les vagues sont définies ici et appliquées par la Billetterie.
+- Les liens vers Remboursement billet et Gestion de billet, sans pattern sur la Context Map, sont du Customer/Supplier avec Programmation en amont.
+- Classé Supporting alors que le tableau du mur range le « CRUD d'évènement et de vagues » en Generic.</textarea>
+                            <small id="assumptions-help" class="form-text text-muted">Describe which currently unverified assumptions went into this bounded context design. Make those assumptions explicit by documenting them here</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="metrics" class="font-weight-bolder">Verification Metrics</label>
+                            <textarea class="form-control" id="metrics" rows="2" aria-describedby="metrics-help">- Nombre de corrections manuelles de vagues après l'ouverture de la vente.
+- Délai entre la décision d'annuler et l'évènement « Concert annulé » publié.
+- Nombre de fois où la Billetterie a dû demander une évolution du modèle de vague.</textarea>
+                            <small id="metrics-help" class="form-text text-muted">Describe metrics which can be used to (in)validate the current structure of this bounded context?</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="questions" class="font-weight-bolder">Open Questions</label>
+                            <textarea class="form-control" id="questions" rows="2" aria-describedby="questions-help">- Peut-on modifier le prix ou le quota d'une vague déjà ouverte ?
+- Que se passe-t-il si une tête d'affiche est remplacée plutôt qu'annulée ?
+- L'annulation d'un artiste qui n'est pas tête d'affiche donne-t-elle droit à quelque chose ?
+- Qui définit les vagues : la Programmation ou la Billetterie ?</textarea>
+                            <small id="questions-help" class="form-text text-muted">Which questions are currently open and need to be addressed?</small>
+                        </div>
+                    </div>
+                </div>
+                <hr/>                
+            </form>
+        </main>
+        <footer>
+            <small id="dependenciesHelp" class="form-text text-muted">Relationships: mutually dependent, upstream/downstream, independent</small>
+            <small id="relationships-help" class="form-text text-muted">ACL: Anti-Corruption Layer - OHS: Open Host Service - PL: Published Language</small>
+            <article>
+                <section>
+                    <p>Source and Documentation: <a href="https://github.com/ddd-crew/bounded-context-canvas" target="_blank" rel="noopener noreferrer">DDD Crew on GitHub: Bounded Context Canvas</a></p>
+                    
+                </section>
+            </article>
+        </footer>
+
+        <a id="download-link" class="btn btn-primary btn-lg" download="bc-canvas-programmation.html" hidden>download</a>
+        <script type="module">
+let downloadLink = document.getElementById("download-link");
+
+document.body.addEventListener("change", ev => {
+    // synchronize form elements' properties with corresponding HTML state
+    let el = ev.target;
+    let tag = el.localName;
+    switch(tag) {
+    case "input":
+        switch(el.type) {
+        case "text":
+            el.setAttribute("value", el.value);
+            break;
+        case "radio":
+            let nodes = document.querySelectorAll(`input[type=radio][name=${el.name}`);
+            for(let node of nodes) {
+                if(node === el) {
+                    node.setAttribute("checked", "");
+                } else {
+                    node.removeAttribute("checked");
+                }
+            }
+            break;
+        default:
+            console.error(`WARNING: unsupported element \`${tag}\``);
+            break;
+        }
+        break;
+    case "textarea":
+        el.textContent = el.value;
+        break;
+    default:
+        console.error(`WARNING: unsupported element \`${tag}\``);
+        break;
+    }
+
+    // generate download link
+    downloadLink.hidden = true;
+    downloadLink.removeAttribute("href");
+    if(el.id === "name") { // use canvas name as file name
+        downloadLink.setAttribute("download", `${slugify(el.value)}.html`);
+    }
+    let html = serializeDOM();
+    let uri = generateDownloadURI(html);
+    downloadLink.href = uri;
+    downloadLink.hidden = false;
+});
+
+// adapted from TiddlyWiki <http://tiddlywiki.com>
+function generateDownloadURI(html) {
+    try {
+        let blob = new Blob([html], { type: "text/html" });
+        return URL.createObjectURL(blob);
+    } catch(err) { // XXX: obsolete?
+        return `data:text/html,${encodeURIComponent(html)}`;
+    }
+}
+
+function serializeDOM(doctype = document.doctype,
+        documentElement = document.documentElement) {
+    doctype = new XMLSerializer().serializeToString(doctype);
+    return [doctype, documentElement.outerHTML].join("\n");
+}
+
+function slugify(str) {
+    return str.toLowerCase().
+        replace(/[^0-9a-z-]+/g, "_").
+        replace(/^_|_$/g, "");
+}
+        </script>
+    </body>
+</html>

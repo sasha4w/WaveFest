@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style type="text/css">
+            @page {
+                size: auto
+            }
+
+            #download-link {
+                position: fixed;
+                top: 0.5rem;
+                right: 0.5rem;
+            }
+        </style>
+        <title>Bounded Context Canvas - Contrôle d&#x27;accès</title>
+    </head>
+    <body>
+        <header>
+            <h1>Bounded Context Canvas (v5)</h1>
+        </header>
+        <main class="container-fluid">
+            <form>
+                <div class="row">
+                    <div class="col border-right">
+                        <div class="form-group">
+                            <label for="name" class="font-weight-bolder">Name</label>
+                            <input type="text" class="form-control" id="name" value="Contrôle d&#x27;accès" aria-describedby="nameHelp">
+                        </div>
+                        <hr/>
+                        <div class="form-group">
+                            <label for="purpose" class="font-weight-bolder">Purpose</label>
+                            <textarea class="form-control" id="purpose" rows="2" aria-describedby="purpose-help">Laisser entrer sur le site uniquement les porteurs d'un billet valide, une seule fois. À l'entrée, le billet est scanné puis échangé contre un bracelet RFID.</textarea>
+                            <small id="purpose-help" class="form-text text-muted">What benefits does this context provide
+                                and how does it provide them?
+                                Describe the purpose from a business
+                                perspective.</small>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col">
+                                <p class="font-weight-bolder text-center">BC Classification</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domain" id="domain-radios-1" value="core">
+                                    <label class="form-check-label" for="domain-radios-1">Core</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domain" id="domain-radios-2" value="supporting" checked="">
+                                    <label class="form-check-label" for="domain-radios-2">Supporting</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domain" id="domain-radios-3" value="generic">
+                                    <label class="form-check-label" for="domain-radios-3">Generic</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="font-weight-bolder text-center">Business Model</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-1" value="revenue">
+                                    <label class="form-check-label" for="business-model-radios-1">Revenue</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-2" value="engagement">
+                                    <label class="form-check-label" for="business-model-radios-2">Engagement</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-3" value="compliance" checked="">
+                                    <label class="form-check-label" for="business-model-radios-3">Compliance</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-4" value="cost-reduction">
+                                    <label class="form-check-label" for="business-model-radios-4">Cost reduction</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="font-weight-bolder text-center">Evolution</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-1" value="genesis">
+                                    <label class="form-check-label" for="evolution-radios-1">Genesis</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-2" value="custom-built">
+                                    <label class="form-check-label" for="evolution-radios-2">Custom built</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-3" value="product" checked="">
+                                    <label class="form-check-label" for="evolution-radios-3">Product</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-4" value="commodity">
+                                    <label class="form-check-label" for="evolution-radios-4">Commodity</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="domain-roles" class="font-weight-bolder">Domain roles</label>
+                            <input type="text" class="form-control" id="domain-roles" value="Enforcer context : fait respecter à l&#x27;entrée ce que les autres contextes ont décidé" aria-describedby="domain-roles-help">
+                            <small id="domain-roles-help" class="form-text text-muted">draft, execution, analysis, gateway context, etc.</small>
+                        </div>
+                    
+                    </div>
+                </div>                
+                <hr/> 
+                <div class="row">
+                    <div class="col">
+                        <div class="col border-right">
+                            <p class="text-center font-weight-bolder">Inbound Communication</p>
+                            <div class="form-group">                                
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Bénévole portique">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2" value="Bénévole portique">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3" value="Bénévole portique">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Acteur">
+                                            <input type="text" class="form-control" id="supplier-relationship-2" value="Acteur">
+                                            <input type="text" class="form-control" id="supplier-relationship-3" value="Acteur">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Command</label>
+                                            <input type="text" class="form-control" id="supplier-command-1" value="Scanner le billet">
+                                            <input type="text" class="form-control" id="supplier-command-2" value="Remettre le bracelet">
+                                            <input type="text" class="form-control" id="supplier-command-3" value="Scanner le bracelet">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>    
+                            
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Billetterie">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Customer/Supplier (U)">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Event</label>
+                                            <input type="text" class="form-control" id="supplier-event-1" value="Billets émis">
+                                            <input type="text" class="form-control" id="supplier-event-2">
+                                            <input type="text" class="form-control" id="supplier-event-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Organisation">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Acteur">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Query</label>
+                                            <input type="text" class="form-control" id="supplier-query-1" value="Nombre d&#x27;entrées">
+                                            <input type="text" class="form-control" id="supplier-query-2">
+                                            <input type="text" class="form-control" id="supplier-query-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>
+                    </div>
+
+                    <div class="col border-right">  
+                        <div class="form-group">
+                            <label for="ubuquitous-language" class="font-weight-bolder">Ubiquitous Language</label>
+                            <textarea class="form-control" id="ubuquitous-language" rows="5" aria-describedby="ubiquitous-language-help">Billet : QR à scanner à l'entrée, valide ou non.
+Scan : Lecture du billet au portique.
+Portique : Point d'entrée du site où les billets sont contrôlés.
+Bénévole portique : Personne qui scanne les billets et remet les bracelets.
+Billet valide : Billet émis, jamais utilisé, pour le bon jour.
+Billet utilisé : Billet déjà échangé contre un bracelet.
+Entrée validée : Passage accepté au portique.
+Entrée refusée : Passage rejeté, avec le motif.
+Bracelet : Support RFID remis en échange du billet, sert d'accès et de moyen de paiement.
+Accès VIP : Droit d'entrer au backstage et au bar dédié.</textarea>
+                            <small id="ubiquitous-language-help" class="form-text text-muted">Key domain terminology</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="business-decisions" class="font-weight-bolder">Business Decisions</label>
+                            <textarea class="form-control" id="business-decisions" rows="5" aria-describedby="business-decisions-help">- Seul un billet émis par la Billetterie peut être valide.
+- Un billet ne s'échange qu'une seule fois contre un bracelet.
+- Un bracelet est associé à un seul billet.
+- Un pass 1 jour ne donne accès qu'à son jour.
+- Seul le pass VIP ouvre le backstage et le bar dédié.
+- Après l'échange, c'est le bracelet qui donne accès au site.
+- Toute entrée refusée indique son motif au bénévole.</textarea>
+                            <small id="business-decisions-help" class="form-text text-muted">Key business rules, policies and decisions</small>
+                        </div>
+                        <hr/>                        
+                    </div>
+
+                    <div class="col">
+                        <div class="col border-right">
+                            <p class="text-center font-weight-bolder">Outbound Communication</p>
+                            <div class="form-group">                                
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Command</label>
+                                            <input type="text" class="form-control" id="supplier-command-1">
+                                            <input type="text" class="form-control" id="supplier-command-2">
+                                            <input type="text" class="form-control" id="supplier-command-3">
+                                            
+                                        </div>
+                                    </div>                                    
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>    
+                            
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Event</label>
+                                            <input type="text" class="form-control" id="supplier-event-1" value="Bracelet remis">
+                                            <input type="text" class="form-control" id="supplier-event-2" value="Entrée validée">
+                                            <input type="text" class="form-control" id="supplier-event-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Partnership">
+                                            <input type="text" class="form-control" id="supplier-relationship-2" value="Partnership">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Paiement cashless">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2" value="Paiement cashless">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Query</label>
+                                            <input type="text" class="form-control" id="supplier-query-1">
+                                            <input type="text" class="form-control" id="supplier-query-2">
+                                            <input type="text" class="form-control" id="supplier-query-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>                                    
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <hr/> 
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="assumptions" class="font-weight-bolder">Assumptions</label>
+                            <textarea class="form-control" id="assumptions" rows="2" aria-describedby="assumptions-help">- Les billets valides sont connus à l'avance grâce à « Billets émis », le portique ne dépend pas de la Billetterie le jour J.
+- Le bracelet remis à l'entrée est le même que celui du cashless.
+- L'identité du titulaire est vérifiée par le bénévole.</textarea>
+                            <small id="assumptions-help" class="form-text text-muted">Describe which currently unverified assumptions went into this bounded context design. Make those assumptions explicit by documenting them here</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="metrics" class="font-weight-bolder">Verification Metrics</label>
+                            <textarea class="form-control" id="metrics" rows="2" aria-describedby="metrics-help">- Temps moyen de passage au portique.
+- Nombre d'entrées refusées, par motif.
+- Nombre de billets échangés deux fois : doit rester à 0.</textarea>
+                            <small id="metrics-help" class="form-text text-muted">Describe metrics which can be used to (in)validate the current structure of this bounded context?</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="questions" class="font-weight-bolder">Open Questions</label>
+                            <textarea class="form-control" id="questions" rows="2" aria-describedby="questions-help">- Le portique doit-il fonctionner sans réseau ?
+- Comment le portique apprend-il qu'un billet a été revendu ou a changé de nom ?
+- Que fait-on d'un bracelet perdu ou cassé ?
+- Le bénévole vérifie-t-il une pièce d'identité ?
+- Un pass 3 jours garde-t-il le même bracelet les trois jours ?</textarea>
+                            <small id="questions-help" class="form-text text-muted">Which questions are currently open and need to be addressed?</small>
+                        </div>
+                    </div>
+                </div>
+                <hr/>                
+            </form>
+        </main>
+        <footer>
+            <small id="dependenciesHelp" class="form-text text-muted">Relationships: mutually dependent, upstream/downstream, independent</small>
+            <small id="relationships-help" class="form-text text-muted">ACL: Anti-Corruption Layer - OHS: Open Host Service - PL: Published Language</small>
+            <article>
+                <section>
+                    <p>Source and Documentation: <a href="https://github.com/ddd-crew/bounded-context-canvas" target="_blank" rel="noopener noreferrer">DDD Crew on GitHub: Bounded Context Canvas</a></p>
+                    
+                </section>
+            </article>
+        </footer>
+
+        <a id="download-link" class="btn btn-primary btn-lg" download="bc-canvas-controle-acces.html" hidden>download</a>
+        <script type="module">
+let downloadLink = document.getElementById("download-link");
+
+document.body.addEventListener("change", ev => {
+    // synchronize form elements' properties with corresponding HTML state
+    let el = ev.target;
+    let tag = el.localName;
+    switch(tag) {
+    case "input":
+        switch(el.type) {
+        case "text":
+            el.setAttribute("value", el.value);
+            break;
+        case "radio":
+            let nodes = document.querySelectorAll(`input[type=radio][name=${el.name}`);
+            for(let node of nodes) {
+                if(node === el) {
+                    node.setAttribute("checked", "");
+                } else {
+                    node.removeAttribute("checked");
+                }
+            }
+            break;
+        default:
+            console.error(`WARNING: unsupported element \`${tag}\``);
+            break;
+        }
+        break;
+    case "textarea":
+        el.textContent = el.value;
+        break;
+    default:
+        console.error(`WARNING: unsupported element \`${tag}\``);
+        break;
+    }
+
+    // generate download link
+    downloadLink.hidden = true;
+    downloadLink.removeAttribute("href");
+    if(el.id === "name") { // use canvas name as file name
+        downloadLink.setAttribute("download", `${slugify(el.value)}.html`);
+    }
+    let html = serializeDOM();
+    let uri = generateDownloadURI(html);
+    downloadLink.href = uri;
+    downloadLink.hidden = false;
+});
+
+// adapted from TiddlyWiki <http://tiddlywiki.com>
+function generateDownloadURI(html) {
+    try {
+        let blob = new Blob([html], { type: "text/html" });
+        return URL.createObjectURL(blob);
+    } catch(err) { // XXX: obsolete?
+        return `data:text/html,${encodeURIComponent(html)}`;
+    }
+}
+
+function serializeDOM(doctype = document.doctype,
+        documentElement = document.documentElement) {
+    doctype = new XMLSerializer().serializeToString(doctype);
+    return [doctype, documentElement.outerHTML].join("\n");
+}
+
+function slugify(str) {
+    return str.toLowerCase().
+        replace(/[^0-9a-z-]+/g, "_").
+        replace(/^_|_$/g, "");
+}
+        </script>
+    </body>
+</html>
