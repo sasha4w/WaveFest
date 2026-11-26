@@ -1,23 +1,24 @@
 ## Glossaire
 
-- **Billetrie** : Plateforme numérique qui permet d'acheter des pass.
-- **Pass** : Justificatif permettant d'avoir un billet.
-- **Billet** : Titre d'accès presenté a l'entrée.
-- **Notification** : Message envoyé au festivalier pour l'informer d'un évènement.
-- **Vague** : Période de vente à prix fixe, close a sa date ou quand son quota est épuisé.
-- **Commande** : Liste d'achat.
-- **Early** : Première vague de vente.
-- **Regular** : Deuxième vague de vente.
-- **Last minute** : Dernière vague de vente.
-- **Commission** : Pourcentage d'une transaction prelevé par les organisateurs.
-- **Bracelet** : Support physique associé à un billet qui permet l'accès et moyen de paiement.
-- **Cashless** : Forme de paiement sans especes au sein du festival.
-- **Rechargement** : Ajout de crédits sur le compte cashless.
-- **Tête d'affiche** : Artiste principal annoncé pour un jour donné d'un festival.
-- **Remboursement** : Réstitution partielle du montant payé.
-- **Festival** : Évènement dont les billets sont vendus par l'application.
-- **Festivaliers** : Personnes participant à un festival.
-- **Revente** : Revente d'un pass acheté sur l'application entre deux festivaliers.
-- **Transfert** : Transfert d'un billet d'un festivalier à un autre dans le cadre d'une revente.
-- **Pass VIP** : Pass permettant accès au backstage et bar dedié.
-- **Programmation** : Préparation et mise en place d'un évènement.
+- **Billetrie** : Plateforme numérique qui permet d'acheter des pass
+- **Pass** : Justificatif permettant d'avoir un billet
+- **Billet** : Titre d'accès presenté a l'entrée
+- **Notification** : Message envoyé au festivalier pour l'informer d'un évènement
+- **Vague** : Période de vente à prix fixe, close a sa date ou quand son quota est épuisé
+- **Commande** : Liste d'achat
+- **Early** : Première vague de vente
+- **Regular** : Deuxième vague de vente
+- **Last minute** : Dernière vague de vente
+- **Commission** : Pourcentage d'une transaction prelevé par les organisateurs
+- **Bracelet** : Support physique associé à un billet qui permet l'accès et moyen de paiement
+- **Cashless** : Forme de paiement sans especes au sein du festival
+- **Rechargement** : Ajout de crédits sur le compte cashless
+- **Tête d'affiche** : Artiste principal annoncé pour un jour donné d'un festival
+- **Remboursement** : Réstitution partielle du montant payé
+- **Festival** : Évènement dont les billets sont vendus par l'application
+- **Festivaliers** : Personnes participant à un festival
+- **Revente** : Revente d'un pass acheté sur l'application entre deux festivaliers
+- **Transfert** : Transfert d'un billet d'un festivalier à un autre dans le cadre d'une revente
+- **Pass VIP** : Pass permettant accès au backstage et bar dedié
+- **Programmation** : Préparation et mise en place d'un évènement
+- **Organisation** : groupe d'individus responsable de la gestion et de l'organisation du festival
