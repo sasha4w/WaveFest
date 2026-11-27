@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style type="text/css">
+            @page {
+                size: auto
+            }
+
+            #download-link {
+                position: fixed;
+                top: 0.5rem;
+                right: 0.5rem;
+            }
+        </style>
+        <title>Bounded Context Canvas - Remboursement cashless</title>
+    </head>
+    <body>
+        <header>
+            <h1>Bounded Context Canvas (v5)</h1>
+        </header>
+        <main class="container-fluid">
+            <form>
+                <div class="row">
+                    <div class="col border-right">
+                        <div class="form-group">
+                            <label for="name" class="font-weight-bolder">Name</label>
+                            <input type="text" class="form-control" id="name" value="Remboursement cashless" aria-describedby="nameHelp">
+                        </div>
+                        <hr/>
+                        <div class="form-group">
+                            <label for="purpose" class="font-weight-bolder">Purpose</label>
+                            <textarea class="form-control" id="purpose" rows="2" aria-describedby="purpose-help">Rendre au festivalier les crédits non dépensés sur son bracelet après le festival. Elle prélève les frais prévus et fait verser le reste par le PSP.</textarea>
+                            <small id="purpose-help" class="form-text text-muted">What benefits does this context provide
+                                and how does it provide them?
+                                Describe the purpose from a business
+                                perspective.</small>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col">
+                                <p class="font-weight-bolder text-center">BC Classification</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domain" id="domain-radios-1" value="core">
+                                    <label class="form-check-label" for="domain-radios-1">Core</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domain" id="domain-radios-2" value="supporting" checked="">
+                                    <label class="form-check-label" for="domain-radios-2">Supporting</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domain" id="domain-radios-3" value="generic">
+                                    <label class="form-check-label" for="domain-radios-3">Generic</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="font-weight-bolder text-center">Business Model</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-1" value="revenue">
+                                    <label class="form-check-label" for="business-model-radios-1">Revenue</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-2" value="engagement">
+                                    <label class="form-check-label" for="business-model-radios-2">Engagement</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-3" value="compliance" checked="">
+                                    <label class="form-check-label" for="business-model-radios-3">Compliance</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-4" value="cost-reduction">
+                                    <label class="form-check-label" for="business-model-radios-4">Cost reduction</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="font-weight-bolder text-center">Evolution</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-1" value="genesis">
+                                    <label class="form-check-label" for="evolution-radios-1">Genesis</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-2" value="custom-built" checked="">
+                                    <label class="form-check-label" for="evolution-radios-2">Custom built</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-3" value="product">
+                                    <label class="form-check-label" for="evolution-radios-3">Product</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-4" value="commodity">
+                                    <label class="form-check-label" for="evolution-radios-4">Commodity</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="domain-roles" class="font-weight-bolder">Domain roles</label>
+                            <input type="text" class="form-control" id="domain-roles" value="Execution context : solde les comptes cashless après le festival" aria-describedby="domain-roles-help">
+                            <small id="domain-roles-help" class="form-text text-muted">draft, execution, analysis, gateway context, etc.</small>
+                        </div>
+                    
+                    </div>
+                </div>                
+                <hr/> 
+                <div class="row">
+                    <div class="col">
+                        <div class="col border-right">
+                            <p class="text-center font-weight-bolder">Inbound Communication</p>
+                            <div class="form-group">                                
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Politique J+15">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2" value="Politique échec PSP">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Interne">
+                                            <input type="text" class="form-control" id="supplier-relationship-2" value="Interne">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Command</label>
+                                            <input type="text" class="form-control" id="supplier-command-1" value="Rembourser les soldes restants">
+                                            <input type="text" class="form-control" id="supplier-command-2" value="Relancer le remboursement">
+                                            <input type="text" class="form-control" id="supplier-command-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>    
+                            
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Paiement cashless">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2" value="PSP">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Shared Kernel">
+                                            <input type="text" class="form-control" id="supplier-relationship-2" value="ACL (U, externe)">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Event</label>
+                                            <input type="text" class="form-control" id="supplier-event-1" value="Achat encaissé">
+                                            <input type="text" class="form-control" id="supplier-event-2" value="Remboursement versé / échoué">
+                                            <input type="text" class="form-control" id="supplier-event-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Festivalier">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Acteur">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Query</label>
+                                            <input type="text" class="form-control" id="supplier-query-1" value="Suivi de mon remboursement">
+                                            <input type="text" class="form-control" id="supplier-query-2">
+                                            <input type="text" class="form-control" id="supplier-query-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>
+                    </div>
+
+                    <div class="col border-right">  
+                        <div class="form-group">
+                            <label for="ubuquitous-language" class="font-weight-bolder">Ubiquitous Language</label>
+                            <textarea class="form-control" id="ubuquitous-language" rows="5" aria-describedby="ubiquitous-language-help">Remboursement : Restitution du solde restant d'un compte cashless.
+Solde restant : Crédits non dépensés à la fin du festival.
+Frais : 1,50 € prélevés sur chaque remboursement.
+Montant remboursé : Solde restant moins les frais.
+Délai : 15 jours après le festival.
+Compte cashless : Compte rattaché à un bracelet, qui porte le solde.
+Bracelet : Support RFID associé au compte cashless.
+Bénéficiaire : Festivalier qui reçoit le remboursement.
+Échec PSP : Remboursement que le PSP n'a pas pu verser.
+Compte soldé : Compte cashless dont le solde a été remboursé.</textarea>
+                            <small id="ubiquitous-language-help" class="form-text text-muted">Key domain terminology</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="business-decisions" class="font-weight-bolder">Business Decisions</label>
+                            <textarea class="form-control" id="business-decisions" rows="5" aria-describedby="business-decisions-help">- Le solde restant est remboursé 15 jours après le festival.
+- 1,50 € de frais sont prélevés sur chaque remboursement.
+- Le montant remboursé est le solde restant moins les frais.
+- Un compte cashless n'est remboursé qu'une seule fois.
+- Un compte remboursé ne peut plus être rechargé ni débité.
+- Si le PSP échoue, le remboursement est retenté.</textarea>
+                            <small id="business-decisions-help" class="form-text text-muted">Key business rules, policies and decisions</small>
+                        </div>
+                        <hr/>                        
+                    </div>
+
+                    <div class="col">
+                        <div class="col border-right">
+                            <p class="text-center font-weight-bolder">Outbound Communication</p>
+                            <div class="form-group">                                
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Command</label>
+                                            <input type="text" class="form-control" id="supplier-command-1" value="Rembourser le festivalier">
+                                            <input type="text" class="form-control" id="supplier-command-2">
+                                            <input type="text" class="form-control" id="supplier-command-3">
+                                            
+                                        </div>
+                                    </div>                                    
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="ACL (U, externe)">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="PSP">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>    
+                            
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Event</label>
+                                            <input type="text" class="form-control" id="supplier-event-1" value="Solde remboursé">
+                                            <input type="text" class="form-control" id="supplier-event-2">
+                                            <input type="text" class="form-control" id="supplier-event-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Conformist (U)">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Notifications">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Query</label>
+                                            <input type="text" class="form-control" id="supplier-query-1" value="Solde restant">
+                                            <input type="text" class="form-control" id="supplier-query-2">
+                                            <input type="text" class="form-control" id="supplier-query-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Shared Kernel">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>                                    
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Paiement cashless">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <hr/> 
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="assumptions" class="font-weight-bolder">Assumptions</label>
+                            <textarea class="form-control" id="assumptions" rows="2" aria-describedby="assumptions-help">- Le remboursement est automatique, sans demande du festivalier.
+- « 15 j après » sur le mur veut dire versé 15 jours après la fin du festival.
+- Un solde inférieur ou égal aux frais ne donne lieu à aucun versement.
+- Le remboursement est versé sur le moyen de paiement du rechargement.</textarea>
+                            <small id="assumptions-help" class="form-text text-muted">Describe which currently unverified assumptions went into this bounded context design. Make those assumptions explicit by documenting them here</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="metrics" class="font-weight-bolder">Verification Metrics</label>
+                            <textarea class="form-control" id="metrics" rows="2" aria-describedby="metrics-help">- Part des comptes soldés à J+15.
+- Part des remboursements en échec au premier essai.
+- Écart entre soldes restants, frais et montants versés : doit rester à 0.</textarea>
+                            <small id="metrics-help" class="form-text text-muted">Describe metrics which can be used to (in)validate the current structure of this bounded context?</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="questions" class="font-weight-bolder">Open Questions</label>
+                            <textarea class="form-control" id="questions" rows="2" aria-describedby="questions-help">- Le remboursement est-il automatique ou sur demande du festivalier ?
+- « 15 j » : versé après 15 jours, ou à demander dans les 15 jours ?
+- Que fait-on d'un solde inférieur à 1,50 € ?
+- Rechargement en espèces sur place : sur quel compte rembourser ?
+- Faut-il vraiment deux contextes cashless reliés par un Shared Kernel ?</textarea>
+                            <small id="questions-help" class="form-text text-muted">Which questions are currently open and need to be addressed?</small>
+                        </div>
+                    </div>
+                </div>
+                <hr/>                
+            </form>
+        </main>
+        <footer>
+            <small id="dependenciesHelp" class="form-text text-muted">Relationships: mutually dependent, upstream/downstream, independent</small>
+            <small id="relationships-help" class="form-text text-muted">ACL: Anti-Corruption Layer - OHS: Open Host Service - PL: Published Language</small>
+            <article>
+                <section>
+                    <p>Source and Documentation: <a href="https://github.com/ddd-crew/bounded-context-canvas" target="_blank" rel="noopener noreferrer">DDD Crew on GitHub: Bounded Context Canvas</a></p>
+                    
+                </section>
+            </article>
+        </footer>
+
+        <a id="download-link" class="btn btn-primary btn-lg" download="bc-canvas-remboursement-cashless.html" hidden>download</a>
+        <script type="module">
+let downloadLink = document.getElementById("download-link");
+
+document.body.addEventListener("change", ev => {
+    // synchronize form elements' properties with corresponding HTML state
+    let el = ev.target;
+    let tag = el.localName;
+    switch(tag) {
+    case "input":
+        switch(el.type) {
+        case "text":
+            el.setAttribute("value", el.value);
+            break;
+        case "radio":
+            let nodes = document.querySelectorAll(`input[type=radio][name=${el.name}`);
+            for(let node of nodes) {
+                if(node === el) {
+                    node.setAttribute("checked", "");
+                } else {
+                    node.removeAttribute("checked");
+                }
+            }
+            break;
+        default:
+            console.error(`WARNING: unsupported element \`${tag}\``);
+            break;
+        }
+        break;
+    case "textarea":
+        el.textContent = el.value;
+        break;
+    default:
+        console.error(`WARNING: unsupported element \`${tag}\``);
+        break;
+    }
+
+    // generate download link
+    downloadLink.hidden = true;
+    downloadLink.removeAttribute("href");
+    if(el.id === "name") { // use canvas name as file name
+        downloadLink.setAttribute("download", `${slugify(el.value)}.html`);
+    }
+    let html = serializeDOM();
+    let uri = generateDownloadURI(html);
+    downloadLink.href = uri;
+    downloadLink.hidden = false;
+});
+
+// adapted from TiddlyWiki <http://tiddlywiki.com>
+function generateDownloadURI(html) {
+    try {
+        let blob = new Blob([html], { type: "text/html" });
+        return URL.createObjectURL(blob);
+    } catch(err) { // XXX: obsolete?
+        return `data:text/html,${encodeURIComponent(html)}`;
+    }
+}
+
+function serializeDOM(doctype = document.doctype,
+        documentElement = document.documentElement) {
+    doctype = new XMLSerializer().serializeToString(doctype);
+    return [doctype, documentElement.outerHTML].join("\n");
+}
+
+function slugify(str) {
+    return str.toLowerCase().
+        replace(/[^0-9a-z-]+/g, "_").
+        replace(/^_|_$/g, "");
+}
+        </script>
+    </body>
+</html>

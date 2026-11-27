@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style type="text/css">
+            @page {
+                size: auto
+            }
+
+            #download-link {
+                position: fixed;
+                top: 0.5rem;
+                right: 0.5rem;
+            }
+        </style>
+        <title>Bounded Context Canvas - Revente</title>
+    </head>
+    <body>
+        <header>
+            <h1>Bounded Context Canvas (v5)</h1>
+        </header>
+        <main class="container-fluid">
+            <form>
+                <div class="row">
+                    <div class="col border-right">
+                        <div class="form-group">
+                            <label for="name" class="font-weight-bolder">Name</label>
+                            <input type="text" class="form-control" id="name" value="Revente" aria-describedby="nameHelp">
+                        </div>
+                        <hr/>
+                        <div class="form-group">
+                            <label for="purpose" class="font-weight-bolder">Purpose</label>
+                            <textarea class="form-control" id="purpose" rows="2" aria-describedby="purpose-help">Permettre à un festivalier de revendre son billet à un autre sur la plateforme officielle, sans spéculation. Elle plafonne le prix, encaisse l'acheteur, prélève la commission et transfère le billet.</textarea>
+                            <small id="purpose-help" class="form-text text-muted">What benefits does this context provide
+                                and how does it provide them?
+                                Describe the purpose from a business
+                                perspective.</small>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col">
+                                <p class="font-weight-bolder text-center">BC Classification</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domain" id="domain-radios-1" value="core">
+                                    <label class="form-check-label" for="domain-radios-1">Core</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domain" id="domain-radios-2" value="supporting" checked="">
+                                    <label class="form-check-label" for="domain-radios-2">Supporting</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="domain" id="domain-radios-3" value="generic">
+                                    <label class="form-check-label" for="domain-radios-3">Generic</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="font-weight-bolder text-center">Business Model</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-1" value="revenue" checked="">
+                                    <label class="form-check-label" for="business-model-radios-1">Revenue</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-2" value="engagement">
+                                    <label class="form-check-label" for="business-model-radios-2">Engagement</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-3" value="compliance">
+                                    <label class="form-check-label" for="business-model-radios-3">Compliance</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="business-model" id="business-model-radios-4" value="cost-reduction">
+                                    <label class="form-check-label" for="business-model-radios-4">Cost reduction</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="font-weight-bolder text-center">Evolution</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-1" value="genesis">
+                                    <label class="form-check-label" for="evolution-radios-1">Genesis</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-2" value="custom-built" checked="">
+                                    <label class="form-check-label" for="evolution-radios-2">Custom built</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-3" value="product">
+                                    <label class="form-check-label" for="evolution-radios-3">Product</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="evolution" id="evolution-radios-4" value="commodity">
+                                    <label class="form-check-label" for="evolution-radios-4">Commodity</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="domain-roles" class="font-weight-bolder">Domain roles</label>
+                            <input type="text" class="form-control" id="domain-roles" value="Execution context : mène une revente de l&#x27;annonce au transfert" aria-describedby="domain-roles-help">
+                            <small id="domain-roles-help" class="form-text text-muted">draft, execution, analysis, gateway context, etc.</small>
+                        </div>
+                    
+                    </div>
+                </div>                
+                <hr/> 
+                <div class="row">
+                    <div class="col">
+                        <div class="col border-right">
+                            <p class="text-center font-weight-bolder">Inbound Communication</p>
+                            <div class="form-group">                                
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Festivalier (vendeur)">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2" value="Festivalier (acheteur)">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3" value="Festivalier (vendeur)">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Acteur">
+                                            <input type="text" class="form-control" id="supplier-relationship-2" value="Acteur">
+                                            <input type="text" class="form-control" id="supplier-relationship-3" value="Acteur">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Command</label>
+                                            <input type="text" class="form-control" id="supplier-command-1" value="Mettre un billet en revente">
+                                            <input type="text" class="form-control" id="supplier-command-2" value="Acheter un billet en revente">
+                                            <input type="text" class="form-control" id="supplier-command-3" value="Retirer l&#x27;annonce">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>    
+                            
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Billetterie">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2" value="PSP">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Customer/Supplier (U)">
+                                            <input type="text" class="form-control" id="supplier-relationship-2" value="ACL (U, externe)">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Event</label>
+                                            <input type="text" class="form-control" id="supplier-event-1" value="Billets émis">
+                                            <input type="text" class="form-control" id="supplier-event-2" value="Paiement confirmé / refusé">
+                                            <input type="text" class="form-control" id="supplier-event-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Festivalier">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Acteur">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Query</label>
+                                            <input type="text" class="form-control" id="supplier-query-1" value="Billets en revente">
+                                            <input type="text" class="form-control" id="supplier-query-2">
+                                            <input type="text" class="form-control" id="supplier-query-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>
+                    </div>
+
+                    <div class="col border-right">  
+                        <div class="form-group">
+                            <label for="ubuquitous-language" class="font-weight-bolder">Ubiquitous Language</label>
+                            <textarea class="form-control" id="ubuquitous-language" rows="5" aria-describedby="ubiquitous-language-help">Revente : Vente d'un billet acheté sur l'application, entre deux festivaliers.
+Annonce : Billet proposé à la revente avec son prix.
+Vendeur : Festivalier titulaire du billet mis en revente.
+Acheteur : Festivalier qui achète un billet en revente.
+Prix d'achat : Prix payé à l'origine pour le billet.
+Prix plafonné : Prix de revente, au maximum égal au prix d'achat.
+Commission : 5 % de la transaction prélevés par les organisateurs.
+Transfert : Passage du billet du vendeur à l'acheteur.
+Reversement : Paiement au vendeur du prix de revente, commission déduite.
+Plateforme officielle : Seul endroit où la revente est autorisée.</textarea>
+                            <small id="ubiquitous-language-help" class="form-text text-muted">Key domain terminology</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="business-decisions" class="font-weight-bolder">Business Decisions</label>
+                            <textarea class="form-control" id="business-decisions" rows="5" aria-describedby="business-decisions-help">- La revente se fait uniquement entre festivaliers, sur la plateforme officielle.
+- Le prix de revente ne dépasse jamais le prix d'achat.
+- Une commission de 5 % est prélevée sur chaque revente.
+- Seul le titulaire d'un billet peut le mettre en revente.
+- Un billet ne peut avoir qu'une annonce active à la fois.
+- Un billet déjà utilisé à l'entrée ne peut pas être revendu.
+- Le transfert n'a lieu qu'après le paiement confirmé de l'acheteur.
+- Le vendeur est payé seulement une fois le billet transféré.</textarea>
+                            <small id="business-decisions-help" class="form-text text-muted">Key business rules, policies and decisions</small>
+                        </div>
+                        <hr/>                        
+                    </div>
+
+                    <div class="col">
+                        <div class="col border-right">
+                            <p class="text-center font-weight-bolder">Outbound Communication</p>
+                            <div class="form-group">                                
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Command</label>
+                                            <input type="text" class="form-control" id="supplier-command-1" value="Demander le paiement">
+                                            <input type="text" class="form-control" id="supplier-command-2" value="Reverser au vendeur">
+                                            <input type="text" class="form-control" id="supplier-command-3">
+                                            
+                                        </div>
+                                    </div>                                    
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="ACL (U, externe)">
+                                            <input type="text" class="form-control" id="supplier-relationship-2" value="ACL (U, externe)">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="PSP">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2" value="PSP">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>    
+                            
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Event</label>
+                                            <input type="text" class="form-control" id="supplier-event-1" value="Billet transféré">
+                                            <input type="text" class="form-control" id="supplier-event-2" value="Billet revendu">
+                                            <input type="text" class="form-control" id="supplier-event-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Customer/Supplier (U)">
+                                            <input type="text" class="form-control" id="supplier-relationship-2" value="Conformist (U)">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Billetterie">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2" value="Notifications">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Query</label>
+                                            <input type="text" class="form-control" id="supplier-query-1" value="Prix d&#x27;achat du billet">
+                                            <input type="text" class="form-control" id="supplier-query-2">
+                                            <input type="text" class="form-control" id="supplier-query-3">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Relationship</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-1" value="Customer/Supplier (U)">
+                                            <input type="text" class="form-control" id="supplier-relationship-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-3">
+                                            
+                                        </div>
+                                    </div>                                    
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>Collaborator</label>
+                                            <input type="text" class="form-control" id="supplier-relationship-name-1" value="Billetterie">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-2">
+                                            <input type="text" class="form-control" id="supplier-relationship-name-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <hr/> 
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="assumptions" class="font-weight-bolder">Assumptions</label>
+                            <textarea class="form-control" id="assumptions" rows="2" aria-describedby="assumptions-help">- Sur la Context Map, la Billetterie est en amont de Revente.
+- La commission est déduite de ce que reçoit le vendeur.
+- Le billet transféré prend le nom de l'acheteur.</textarea>
+                            <small id="assumptions-help" class="form-text text-muted">Describe which currently unverified assumptions went into this bounded context design. Make those assumptions explicit by documenting them here</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="metrics" class="font-weight-bolder">Verification Metrics</label>
+                            <textarea class="form-control" id="metrics" rows="2" aria-describedby="metrics-help">- Part des billets revendus sur les billets émis.
+- Nombre d'annonces refusées pour prix supérieur au prix d'achat.
+- Délai entre le paiement de l'acheteur et le transfert du billet.</textarea>
+                            <small id="metrics-help" class="form-text text-muted">Describe metrics which can be used to (in)validate the current structure of this bounded context?</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="questions" class="font-weight-bolder">Open Questions</label>
+                            <textarea class="form-control" id="questions" rows="2" aria-describedby="questions-help">- La commission de 5 % est-elle payée par le vendeur ou par l'acheteur ?
+- Jusqu'à quand peut-on revendre : J-7, la veille, le jour même ?
+- Concert annulé après une revente : qui est remboursé, et sur quel prix ?
+- Qui prévient Gestion de billet et Contrôle d'accès du nouveau titulaire ? Aucun lien sur la Context Map.
+- Peut-on revendre un pass VIP comme les autres ?</textarea>
+                            <small id="questions-help" class="form-text text-muted">Which questions are currently open and need to be addressed?</small>
+                        </div>
+                    </div>
+                </div>
+                <hr/>                
+            </form>
+        </main>
+        <footer>
+            <small id="dependenciesHelp" class="form-text text-muted">Relationships: mutually dependent, upstream/downstream, independent</small>
+            <small id="relationships-help" class="form-text text-muted">ACL: Anti-Corruption Layer - OHS: Open Host Service - PL: Published Language</small>
+            <article>
+                <section>
+                    <p>Source and Documentation: <a href="https://github.com/ddd-crew/bounded-context-canvas" target="_blank" rel="noopener noreferrer">DDD Crew on GitHub: Bounded Context Canvas</a></p>
+                    
+                </section>
+            </article>
+        </footer>
+
+        <a id="download-link" class="btn btn-primary btn-lg" download="bc-canvas-revente.html" hidden>download</a>
+        <script type="module">
+let downloadLink = document.getElementById("download-link");
+
+document.body.addEventListener("change", ev => {
+    // synchronize form elements' properties with corresponding HTML state
+    let el = ev.target;
+    let tag = el.localName;
+    switch(tag) {
+    case "input":
+        switch(el.type) {
+        case "text":
+            el.setAttribute("value", el.value);
+            break;
+        case "radio":
+            let nodes = document.querySelectorAll(`input[type=radio][name=${el.name}`);
+            for(let node of nodes) {
+                if(node === el) {
+                    node.setAttribute("checked", "");
+                } else {
+                    node.removeAttribute("checked");
+                }
+            }
+            break;
+        default:
+            console.error(`WARNING: unsupported element \`${tag}\``);
+            break;
+        }
+        break;
+    case "textarea":
+        el.textContent = el.value;
+        break;
+    default:
+        console.error(`WARNING: unsupported element \`${tag}\``);
+        break;
+    }
+
+    // generate download link
+    downloadLink.hidden = true;
+    downloadLink.removeAttribute("href");
+    if(el.id === "name") { // use canvas name as file name
+        downloadLink.setAttribute("download", `${slugify(el.value)}.html`);
+    }
+    let html = serializeDOM();
+    let uri = generateDownloadURI(html);
+    downloadLink.href = uri;
+    downloadLink.hidden = false;
+});
+
+// adapted from TiddlyWiki <http://tiddlywiki.com>
+function generateDownloadURI(html) {
+    try {
+        let blob = new Blob([html], { type: "text/html" });
+        return URL.createObjectURL(blob);
+    } catch(err) { // XXX: obsolete?
+        return `data:text/html,${encodeURIComponent(html)}`;
+    }
+}
+
+function serializeDOM(doctype = document.doctype,
+        documentElement = document.documentElement) {
+    doctype = new XMLSerializer().serializeToString(doctype);
+    return [doctype, documentElement.outerHTML].join("\n");
+}
+
+function slugify(str) {
+    return str.toLowerCase().
+        replace(/[^0-9a-z-]+/g, "_").
+        replace(/^_|_$/g, "");
+}
+        </script>
+    </body>
+</html>
