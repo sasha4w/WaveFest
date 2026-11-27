@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="WaveFest.csproj" />
+  <Project Path="Test/WaveFest.Test.csproj" />
+</Solution>

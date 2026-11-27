@@ -1,0 +1,12 @@
+# Build .NET
+bin/
+obj/
+
+# IDE
+.idea/
+.vs/
+*.user
+*.suo
+
+# Tests
+TestResults/
